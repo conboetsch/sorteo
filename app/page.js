@@ -19,6 +19,11 @@ export default function Home() {
       setError('Ingresa un correo electrónico válido.')
       return
     }
+    const soloNumeros = form.telefono.replace(/\D/g, '')
+    if (soloNumeros.length < 9) {
+      setError('El teléfono debe tener al menos 9 dígitos.')
+      return
+    }
     setError('')
     setEstado('loading')
     try {
