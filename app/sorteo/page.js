@@ -62,24 +62,6 @@ export default function AdminSorteo() {
   }
 
 
-  const exportarCSV = async () => {
-    try {
-      const res = await fetch('/api/export', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password })
-      })
-      if (!res.ok) throw new Error('Error al exportar')
-      const blob = await res.blob()
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `participantes_sorteo_${new Date().toISOString().slice(0,10)}.csv`
-      a.click()
-      URL.revokeObjectURL(url)
-    } catch (e) {
-      setError('Error al exportar: ' + e.message)
-    }
   }
 
   const iniciarSorteo = () => {
@@ -213,7 +195,6 @@ export default function AdminSorteo() {
           🎯 Iniciar Sorteo
         </button>
         <button className="btn-secondary" onClick={actualizar}>🔄 Actualizar lista</button>
-        <button className="btn-secondary mt-2" onClick={exportarCSV}>📊 Exportar Excel/CSV</button>
       </div>
     </main>
   )
