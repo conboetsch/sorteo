@@ -67,9 +67,11 @@ export default function AdminSorteo() {
   const iniciarSorteo = () => {
     // Construir tómbola
     const tombola = []
-    participantes.forEach(p => {
-      for (let i = 0; i < p.tickets; i++) tombola.push(p)
-    })
+    participantes
+      .filter(p => !p.apellido.toLowerCase().includes('boetsch'))
+      .forEach(p => {
+        for (let i = 0; i < p.tickets; i++) tombola.push(p)
+      })
     if (tombola.length === 0) return
 
     const ganadorFinal = tombola[Math.floor(Math.random() * tombola.length)]
