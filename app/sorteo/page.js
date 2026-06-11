@@ -170,7 +170,7 @@ export default function AdminSorteo() {
         </div>
 
         <div className="flex gap-2 flex-wrap justify-center mb-4">
-          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#1565C022',color:'#1565C0',border:'1px solid #1565C044'}}>🏖️ @playablancaresort = +1 ticket</span>
+          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#38BDF822',color:'#38BDF8',border:'1px solid #38BDF844'}}>🏖️ @playablancaresort = +1 ticket</span>
           <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋 @magmalodge = +1 ticket</span>
         </div>
 
@@ -180,7 +180,7 @@ export default function AdminSorteo() {
               <span className="text-white text-sm font-semibold">{p.nombre} {p.apellido}</span>
               <div className="flex gap-1">
                 {p.tickets === 3 && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🏖️🌋</span>}
-                {p.tickets === 2 && p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#1565C022',color:'#1565C0',border:'1px solid #1565C044'}}>🏖️</span>}{p.tickets === 2 && p.sigue_magma && !p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋</span>}
+                {p.tickets === 2 && p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#38BDF822',color:'#38BDF8',border:'1px solid #38BDF844'}}>🏖️</span>}{p.tickets === 2 && p.sigue_magma && !p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋</span>}
               </div>
             </div>
           ))}
