@@ -32,7 +32,7 @@ export default function Home() {
       setEstado('success')
     } catch (e) {
       setError(e.message)
-      setEstado('error')
+      setEstado('idle')
     }
   }
 
@@ -49,20 +49,21 @@ export default function Home() {
         <h1 className="text-white font-black text-2xl md:text-3xl leading-tight">
           Sorteo · Gran Final<br/>Monte Tabor 2026
         </h1>
-        <p className="text-white/50 text-sm mt-2 font-light">La aventura de estar juntos</p>
+        <p className="text-white/50 text-sm mt-2 font-light">🏖️ La aventura de estar juntos · 🌋 Vuelve a lo esencial</p>
       </div>
 
       {/* PREMIO */}
       <div className="glass p-5 w-full max-w-md mb-6 text-center">
         <p className="text-white/40 text-xs font-bold tracking-widest uppercase mb-2">El Premio</p>
         <p className="text-white font-bold text-lg">2 noches / 3 días · hasta 6 personas</p>
-        <p className="text-white/50 text-xs mt-1">🏖️ Playa Blanca Resort, Tongoy — "La aventura de estar juntos" · 🌋 Magma Lodge, Pucón — "Entre lago y bosque"</p>
+        <p className="text-white/50 text-xs mt-1">🏖️ Playa Blanca Resort, Tongoy — "La aventura de estar juntos"</p>
+        <p className="text-white/50 text-xs mt-0.5">🌋 Magma Lodge, Pucón — "Entre lago y bosque, vuelve a lo esencial"</p>
       </div>
 
       {/* FORMULARIO */}
       <div className="glass p-6 w-full max-w-md">
         <p className="text-white/60 text-xs mb-5 leading-relaxed">
-          Inscríbete para participar. <strong className="text-white/80">El certificado del premio se enviará al correo que registres</strong> — asegúrate de ingresar uno válido 😉
+          Inscríbete para participar. <strong className="text-white/80">El correo es necesario para enviarte el certificado si ganas</strong> — asegúrate de ingresar uno válido 😉
         </p>
 
         <div className="flex gap-3 mb-4">
@@ -94,24 +95,24 @@ export default function Home() {
         <div className="mb-4">
           <label>¿Sigues a @playablancaresort en Instagram? *</label>
           <select value={form.sigue_playablanca} onChange={e => setForm({...form, sigue_playablanca: e.target.value})}>
-            <option value="">Selecciona una opción</option>
-            <option value="si">✅ Sí, ¡quiero doble chance! 🏖️</option>
-            <option value="no">Todavía no</option>
+            <option value="">— Selecciona —</option>
+            <option value="si">✅ Sí la sigo → ¡Doble chance! 🏖️</option>
+            <option value="no">No la sigo aún</option>
           </select>
         </div>
 
         <div className="mb-6">
-          <label>¿También sigues a @magmalodge? *</label>
+          <label>¿Sigues a @magmalodge en Instagram? *</label>
           <select value={form.sigue_magma} onChange={e => setForm({...form, sigue_magma: e.target.value})}>
-            <option value="">Selecciona una opción</option>
-            <option value="si">✅ Sí, ¡quiero triple chance! 🌋</option>
-            <option value="no">Todavía no</option>
+            <option value="">— Selecciona —</option>
+            <option value="si">✅ Sí la sigo → ¡Triple chance! 🌋</option>
+            <option value="no">No la sigo aún</option>
           </select>
         </div>
 
         {error && (
           <div className="mb-4 p-3 rounded-xl text-sm" style={{background:'rgba(231,76,60,0.15)', border:'1px solid rgba(231,76,60,0.4)', color:'#FCA5A5'}}>
-            {error}
+            ⚠️ {error}
           </div>
         )}
 
@@ -120,7 +121,7 @@ export default function Home() {
         </button>
 
         <p className="text-white/30 text-xs text-center mt-4">
-          Solo participan personas presentes en el evento · Mayores de 18 años
+          Solo participan personas presentes en el evento · Solo una inscripción por persona
         </p>
       </div>
     </main>
@@ -137,8 +138,9 @@ function Exito({ nombre }) {
           Te anotamos en el sorteo. Recuerda estar presente durante el entretiempo — ¡ese es el momento del sorteo!
         </p>
         <div className="rounded-xl p-4 mb-4" style={{background:'rgba(212,168,67,0.1)', border:'1px solid rgba(212,168,67,0.3)'}}>
-          <p className="text-white/80 text-sm font-semibold">🏖️ Premio: 2 noches / 3 días · hasta 6 personas</p>
-          <p className="text-white/50 text-xs mt-1">Playa Blanca Resort o Magma Lodge · Válido hasta junio 2027</p>
+          <p className="text-white/80 text-sm font-semibold">🏆 Premio: 2 noches / 3 días · hasta 6 personas</p>
+          <p className="text-white/50 text-xs mt-1">🏖️ Playa Blanca Resort, Tongoy o 🌋 Magma Lodge, Pucón</p>
+          <p className="text-white/40 text-xs mt-1">Válido hasta junio 2027</p>
         </div>
         <p className="text-white/40 text-xs">Si ganas, recibirás el certificado en tu correo 📧</p>
       </div>
