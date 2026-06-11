@@ -11,14 +11,14 @@ export async function POST(req) {
     const { data, error } = await supabaseAdmin
       .from('participantes')
       .select('*')
+      .order('ganador', { ascending: false }) // ganador primero
       .order('created_at', { ascending: true })
 
     if (error) throw error
 
-    // Construir CSV con BOM para que Excel lo abra bien con tildes
     const BOM = '\uFEFF'
     const headers = ['N°','Nombre','Apellido','Correo','Teléfono','Hijos','Sigue @playablancaresort','Sigue @magmalodge','Tickets','Ganador','Fecha inscripción']
-    
+
     const rows = data.map((p, i) => [
       i + 1,
       p.nombre,
@@ -29,7 +29,7 @@ export async function POST(req) {
       p.sigue_playablanca ? 'Sí' : 'No',
       p.sigue_magma ? 'Sí' : 'No',
       p.tickets,
-      p.ganador ? 'GANADOR 🏆' : '',
+      p.ganador ? '🏆 GANADOR - ENVIAR CERTIFICADO' : '',
       new Date(p.created_at).toLocaleString('es-CL', {timeZone:'America/Santiago'})
     ])
 
