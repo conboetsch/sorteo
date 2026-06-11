@@ -92,12 +92,23 @@ export default function Home() {
           <input placeholder="Ej: 2" value={form.hijos} onChange={e => setForm({...form, hijos: e.target.value})} />
         </div>
 
-        <div className="mb-4">
+        {/* BLOQUE TICKETS */}
+        <div className="mb-5 p-4 rounded-2xl" style={{background:'rgba(212,168,67,0.08)',border:'1px solid rgba(212,168,67,0.25)'}}>
+          <p className="text-white/80 text-xs font-bold uppercase tracking-widest mb-2">🏆 Más oportunidades de ganar</p>
+          <div className="flex flex-col gap-1">
+            <p className="text-white/60 text-xs">• Inscripción = <strong className="text-white/90">1 ticket</strong></p>
+            <p className="text-white/60 text-xs">• Sigues @playablancaresort = <strong className="text-white/90">+1 ticket</strong></p>
+            <p className="text-white/60 text-xs">• Sigues @magmalodge = <strong className="text-white/90">+1 ticket</strong></p>
+          </div>
+          <p className="text-white/40 text-xs mt-2">Máximo: 3 tickets por participante.</p>
+        </div>
+
+                <div className="mb-4">
           <label>¿Sigues a @playablancaresort en Instagram? *</label>
           <select value={form.sigue_playablanca} onChange={e => setForm({...form, sigue_playablanca: e.target.value})}>
             <option value="">— Selecciona —</option>
-            <option value="si">✅ Sí la sigo → ¡Doble chance! 🏖️</option>
-            <option value="no">No la sigo aún</option>
+            <option value="si">✅ Sí, sigo la cuenta (+1 ticket)</option>
+            <option value="no">❌ No sigo la cuenta (+0 tickets)</option>
           </select>
         </div>
 
@@ -105,8 +116,8 @@ export default function Home() {
           <label>¿Sigues a @magmalodge en Instagram? *</label>
           <select value={form.sigue_magma} onChange={e => setForm({...form, sigue_magma: e.target.value})}>
             <option value="">— Selecciona —</option>
-            <option value="si">✅ Sí la sigo → ¡Triple chance! 🌋</option>
-            <option value="no">No la sigo aún</option>
+            <option value="si">✅ Sí, sigo la cuenta (+1 ticket)</option>
+            <option value="no">❌ No sigo la cuenta (+0 tickets)</option>
           </select>
         </div>
 
