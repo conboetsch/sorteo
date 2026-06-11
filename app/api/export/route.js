@@ -34,7 +34,7 @@ export async function POST(req) {
     ])
 
     const csv = BOM + [headers, ...rows]
-      .map(row => row.map(v => `"${String(v).replace(/"/g, '""')}"`).join(','))
+      .map(row => row.map(v => `"${String(v).replace(/"/g, '""')}"`).join(';'))
       .join('\r\n')
 
     return new NextResponse(csv, {
