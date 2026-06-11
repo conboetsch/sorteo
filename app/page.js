@@ -43,8 +43,8 @@ export default function Home() {
       {/* HEADER */}
       <div className="text-center mb-6">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="text-xs font-bold tracking-widest px-3 py-1 rounded-full border" style={{color:'#7DD3FC', borderColor:'#7DD3FC44', background:'#7DD3FC11'}}>🏖️ Playa Blanca</span>
-          <span className="text-xs font-bold tracking-widest px-3 py-1 rounded-full border" style={{color:'#FCA5A5', borderColor:'#FCA5A544', background:'#FCA5A511'}}>🌋 Magma Lodge</span>
+          <span className="text-xs font-bold tracking-widest px-3 py-1 rounded-full border" style={{color:'#7DD3FC', borderColor:'#7DD3FC44', background:'#7DD3FC11'}}>🏖️ Playa Blanca Resort</span>
+          <span className="text-xs font-bold tracking-widest px-3 py-1 rounded-full border" style={{color:'#FCA5A5', borderColor:'#FCA5A544', background:'#FCA5A511'}}>🌋 Magma Lodge · Pucón</span>
         </div>
         <h1 className="text-white font-black text-2xl md:text-3xl leading-tight">
           Sorteo · Gran Final<br/>Monte Tabor 2026
@@ -55,8 +55,8 @@ export default function Home() {
       {/* PREMIO */}
       <div className="glass p-5 w-full max-w-md mb-6 text-center">
         <p className="text-white/40 text-xs font-bold tracking-widest uppercase mb-2">El Premio</p>
-        <p className="text-white font-bold text-lg">2 noches · 6 personas · Frente al mar</p>
-        <p className="text-white/50 text-xs mt-1">Playa Blanca Resort, Tongoy · o Magma Lodge, Pucón</p>
+        <p className="text-white font-bold text-lg">2 noches / 3 días · hasta 6 personas</p>
+        <p className="text-white/50 text-xs mt-1">🏖️ Playa Blanca Resort, Tongoy — "La aventura de estar juntos" · 🌋 Magma Lodge, Pucón — "Entre lago y bosque"</p>
       </div>
 
       {/* FORMULARIO */}
@@ -137,8 +137,8 @@ function Exito({ nombre }) {
           Te anotamos en el sorteo. Recuerda estar presente durante el entretiempo — ¡ese es el momento del sorteo!
         </p>
         <div className="rounded-xl p-4 mb-4" style={{background:'rgba(212,168,67,0.1)', border:'1px solid rgba(212,168,67,0.3)'}}>
-          <p className="text-white/80 text-sm font-semibold">🏖️ Premio: 2 noches en Playa Blanca Resort o Magma Lodge</p>
-          <p className="text-white/50 text-xs mt-1">6 personas · Válido hasta junio 2027</p>
+          <p className="text-white/80 text-sm font-semibold">🏖️ Premio: 2 noches / 3 días · hasta 6 personas</p>
+          <p className="text-white/50 text-xs mt-1">Playa Blanca Resort o Magma Lodge · Válido hasta junio 2027</p>
         </div>
         <p className="text-white/40 text-xs">Si ganas, recibirás el certificado en tu correo 📧</p>
       </div>
