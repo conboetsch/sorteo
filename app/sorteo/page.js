@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 
 const ESTADOS = { LOGIN: 'login', CARGANDO: 'cargando', LISTA: 'lista', SORTEANDO: 'sorteando', GANADOR: 'ganador', CONFIRMADO: 'confirmado' }
 
@@ -14,7 +14,6 @@ export default function AdminSorteo() {
   const [progreso, setProgreso] = useState(0)
   const intervalRef = useRef(null)
 
-  // Lanzar confetti
   const confetti = () => {
     const colors = ['#D4A843','#7DD3FC','#FCA5A5','#6EE7B7','#FDE047','#FFFFFF']
     for (let i = 0; i < 100; i++) {
@@ -61,11 +60,8 @@ export default function AdminSorteo() {
     } catch (e) {}
   }
 
-
-  }
-
   const iniciarSorteo = () => {
-    // Construir tómbola
+    // Construir tómbola — excluir apellido Boetsch
     const tombola = []
     participantes
       .filter(p => !p.apellido.toLowerCase().includes('boetsch'))
@@ -160,7 +156,6 @@ export default function AdminSorteo() {
       </div>
 
       <div className="glass p-6 w-full max-w-md">
-        {/* STATS */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           {[
             { num: stats.total, label: 'Inscritos' },
@@ -174,20 +169,18 @@ export default function AdminSorteo() {
           ))}
         </div>
 
-        {/* LEYENDA */}
         <div className="flex gap-2 flex-wrap justify-center mb-4">
           <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>2x = sigue @playablancaresort</span>
           <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>3x = + @magmalodge</span>
         </div>
 
-        {/* LISTA */}
         <div className="rounded-xl overflow-hidden mb-4" style={{background:'rgba(0,0,0,0.2)',maxHeight:'200px',overflowY:'auto'}}>
           {participantes.map(p => (
             <div key={p.id} className="flex items-center justify-between px-3 py-2 border-b border-white/5 last:border-0">
               <span className="text-white text-sm font-semibold">{p.nombre} {p.apellido}</span>
               <div className="flex gap-1">
-                {p.sigue_magma && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>3x</span>}
-                {!p.sigue_magma && p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>2x</span>}
+                {p.tickets === 3 && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>3x</span>}
+                {p.tickets === 2 && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>2x</span>}
               </div>
             </div>
           ))}
@@ -221,7 +214,6 @@ export default function AdminSorteo() {
   if (estado === ESTADOS.GANADOR && ganador) return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="glass p-8 w-full max-w-md">
-        {/* GANADOR */}
         <div className="text-center p-6 rounded-2xl mb-4" style={{background:'rgba(212,168,67,0.1)',border:'2px solid #D4A843'}}>
           <div className="text-5xl mb-3">🏆</div>
           <p className="text-white/40 text-xs uppercase tracking-widest font-bold mb-1">Ganador</p>
@@ -229,28 +221,30 @@ export default function AdminSorteo() {
           <p className="text-white/40 text-sm mt-1">{ganador.mail}</p>
         </div>
 
-        {/* VERIFICACIÓN */}
-        {!ganador.sigue_playablanca && !ganador.sigue_magma ? (
+        {(ganador.sigue_playablanca || ganador.sigue_magma) ? (
+          <div className="p-4 rounded-2xl mb-4" style={{background:'rgba(231,76,60,0.15)',border:'1px solid rgba(231,76,60,0.4)'}}>
+            <p className="text-red-300 text-xs font-bold uppercase tracking-widest mb-1">
+              {ganador.sigue_playablanca && ganador.sigue_magma ? '🌋🏖️ Triple chance — Verificar' : ganador.sigue_playablanca ? '🏖️ Doble chance — Verificar' : '🌋 Doble chance — Verificar'}
+            </p>
+            <p className="text-white/80 text-sm">
+              Pídele que muestre el teléfono: debe seguir
+              {ganador.sigue_playablanca && ' @playablancaresort'}
+              {ganador.sigue_playablanca && ganador.sigue_magma && ' y'}
+              {ganador.sigue_magma && ' @magmalodge'}.
+              Si no puede, sortea de nuevo.
+            </p>
+          </div>
+        ) : (
           <div className="p-4 rounded-2xl mb-4" style={{background:'rgba(39,174,96,0.15)',border:'1px solid rgba(39,174,96,0.4)'}}>
             <p className="text-green-300 text-xs font-bold uppercase tracking-widest mb-1">✅ Sin verificación</p>
             <p className="text-white/80 text-sm">No marcó seguir ninguna cuenta. ¡Es el ganador directo!</p>
-          </div>
-        ) : ganador.sigue_magma ? (
-          <div className="p-4 rounded-2xl mb-4" style={{background:'rgba(231,76,60,0.15)',border:'1px solid rgba(231,76,60,0.4)'}}>
-            <p className="text-red-300 text-xs font-bold uppercase tracking-widest mb-1">🌋 Triple chance — Verificar</p>
-            <p className="text-white/80 text-sm">Pídele que muestre el teléfono: debe seguir <strong>@playablancaresort</strong> Y <strong>@magmalodge</strong>. Si no puede, sortea de nuevo.</p>
-          </div>
-        ) : (
-          <div className="p-4 rounded-2xl mb-4" style={{background:'rgba(231,76,60,0.15)',border:'1px solid rgba(231,76,60,0.4)'}}>
-            <p className="text-red-300 text-xs font-bold uppercase tracking-widest mb-1">🏖️ Doble chance — Verificar</p>
-            <p className="text-white/80 text-sm">Pídele que muestre el teléfono: debe seguir <strong>@playablancaresort</strong>. Si no puede, sortea de nuevo.</p>
           </div>
         )}
 
         {error && <p className="text-red-400 text-sm mb-3">{error}</p>}
 
         <button className="btn-success mb-3" onClick={confirmarGanador}>
-          ✅ Confirmar — Enviar certificado
+          ✅ Confirmar ganador
         </button>
         <button className="btn-danger" onClick={nuevoSorteo}>
           ❌ No puede demostrar — Nuevo sorteo
@@ -266,7 +260,7 @@ export default function AdminSorteo() {
         <div className="text-6xl mb-4">🎉</div>
         <h2 className="text-white font-black text-2xl mb-2">¡Listo!</h2>
         <p className="text-white/60 text-sm mb-6">
-          El certificado fue enviado al correo de <strong className="text-white">{ganador?.nombre}</strong>. El sorteo terminó con éxito.
+          El sorteo terminó con éxito. Ganador confirmado:
         </p>
         <div className="p-4 rounded-2xl" style={{background:'rgba(212,168,67,0.1)',border:'1px solid rgba(212,168,67,0.3)'}}>
           <p className="text-white/60 text-xs">Ganador confirmado</p>
