@@ -120,7 +120,7 @@ export default function AdminSorteo() {
 
   // LOGIN
   if (estado === ESTADOS.LOGIN) return (
-    <main className="min-h-screen flex items-center justify-center px-4 panel-animador">
+    <main className="min-h-screen flex items-center justify-center px-4">
       <div className="glass p-8 w-full max-w-sm text-center">
         <div className="text-4xl mb-4">🔒</div>
         <h2 className="text-white font-black text-xl mb-2">Panel del Sorteo</h2>
@@ -139,7 +139,7 @@ export default function AdminSorteo() {
 
   // CARGANDO
   if (estado === ESTADOS.CARGANDO) return (
-    <main className="min-h-screen flex items-center justify-center panel-animador">
+    <main className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <div className="spinner mx-auto mb-4"></div>
         <p className="text-white/60">Cargando participantes...</p>
@@ -149,7 +149,7 @@ export default function AdminSorteo() {
 
   // LISTA
   if (estado === ESTADOS.LISTA) return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8 panel-animador">
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
       <div className="text-center mb-6">
         <h1 className="text-white font-black text-2xl">Sorteo · Monte Tabor 2026</h1>
         <p className="text-white/40 text-sm mt-1">Panel del anfitrión</p>
@@ -196,7 +196,7 @@ export default function AdminSorteo() {
 
   // SORTEANDO
   if (estado === ESTADOS.SORTEANDO) return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 panel-animador">
+    <main className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="glass p-8 w-full max-w-md text-center">
         <p className="text-white/40 text-sm uppercase tracking-widest mb-6 font-bold">¡Momento del Sorteo!</p>
         <div className="w-full h-1 rounded-full mb-8" style={{background:'rgba(255,255,255,0.1)'}}>
@@ -212,7 +212,7 @@ export default function AdminSorteo() {
 
   // GANADOR
   if (estado === ESTADOS.GANADOR && ganador) return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 panel-animador">
+    <main className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="glass p-8 w-full max-w-md">
         <div className="text-center p-6 rounded-2xl mb-4" style={{background:'rgba(212,168,67,0.1)',border:'2px solid #D4A843'}}>
           <div className="text-5xl mb-3">🏆</div>
@@ -255,7 +255,7 @@ export default function AdminSorteo() {
 
   // CONFIRMADO
   if (estado === ESTADOS.CONFIRMADO) return (
-    <main className="min-h-screen flex items-center justify-center px-4 panel-animador">
+    <main className="min-h-screen flex items-center justify-center px-4">
       <div className="glass p-8 w-full max-w-md text-center">
         <div className="text-6xl mb-4">🎉</div>
         <h2 className="text-white font-black text-2xl mb-2">¡Listo!</h2>
