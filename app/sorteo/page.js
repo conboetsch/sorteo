@@ -170,8 +170,8 @@ export default function AdminSorteo() {
         </div>
 
         <div className="flex gap-2 flex-wrap justify-center mb-4">
-          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>2x = sigue @playablancaresort</span>
-          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>3x = + @magmalodge</span>
+          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>🏖️ @playablancaresort = +1 ticket</span>
+          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋 @magmalodge = +1 ticket</span>
         </div>
 
         <div className="rounded-xl overflow-hidden mb-4" style={{background:'rgba(0,0,0,0.2)',maxHeight:'200px',overflowY:'auto'}}>
@@ -179,8 +179,8 @@ export default function AdminSorteo() {
             <div key={p.id} className="flex items-center justify-between px-3 py-2 border-b border-white/5 last:border-0">
               <span className="text-white text-sm font-semibold">{p.nombre} {p.apellido}</span>
               <div className="flex gap-1">
-                {p.tickets === 3 && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>3x</span>}
-                {p.tickets === 2 && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>2x</span>}
+                {p.tickets === 3 && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🏖️🌋</span>}
+                {p.tickets === 2 && p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#7DD3FC22',color:'#7DD3FC',border:'1px solid #7DD3FC44'}}>🏖️</span>}{p.tickets === 2 && p.sigue_magma && !p.sigue_playablanca && <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋</span>}
               </div>
             </div>
           ))}
