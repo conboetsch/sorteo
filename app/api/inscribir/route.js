@@ -11,7 +11,12 @@ export async function POST(req) {
 
     const siguePlayablanca = sigue_playablanca === 'si'
     const sigueMagma = sigue_magma === 'si'
-    const tickets = sigueMagma ? 3 : siguePlayablanca ? 2 : 1
+
+    // Lógica correcta:
+    // 0 instagram = 1 ticket (participa 1 vez)
+    // 1 instagram = 2 tickets (nombre se repite 2 veces)
+    // 2 instagram = 3 tickets (nombre se repite 3 veces)
+    const tickets = 1 + (siguePlayablanca ? 1 : 0) + (sigueMagma ? 1 : 0)
 
     const { error } = await supabaseAdmin
       .from('participantes')
