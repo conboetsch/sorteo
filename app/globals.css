@@ -18,7 +18,7 @@ body {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #D4A843, #B8862E);
+  background: linear-gradient(135deg, #F5C000, #D4A000);
   color: #1a1a1a;
   font-weight: 700;
   border-radius: 16px;
@@ -99,7 +99,7 @@ input, select {
 }
 
 input:focus, select:focus {
-  border-color: #D4A843;
+  border-color: #F5C000;
 }
 
 input::placeholder {
@@ -129,7 +129,7 @@ label {
   width: 48px;
   height: 48px;
   border: 3px solid rgba(255,255,255,0.1);
-  border-top-color: #D4A843;
+  border-top-color: #F5C000;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
