@@ -103,7 +103,7 @@ export default function Home() {
           <div className="flex flex-col gap-1">
             <p className="text-white/60 text-xs">• Inscripción = <strong className="text-white/90">1 ticket</strong></p>
             <p className="text-white/60 text-xs">• Sigues @playablanca_resort = <strong className="text-white/90">+1 ticket</strong></p>
-            <p className="text-white/60 text-xs">• Sigues @magmalodge = <strong className="text-white/90">+1 ticket</strong></p>
+            <p className="text-white/60 text-xs">• Sigues @magma.lodge = <strong className="text-white/90">+1 ticket</strong></p>
           </div>
           <p className="text-white/40 text-xs mt-2">Máximo: 3 tickets por participante.</p>
         </div>
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
 
         <div className="mb-6">
-          <label>¿Sigues a @magmalodge en Instagram? *</label>
+          <label>¿Sigues a @magma.lodge en Instagram? *</label>
           <select value={form.sigue_magma} onChange={e => setForm({...form, sigue_magma: e.target.value})}>
             <option value="">— Selecciona —</option>
             <option value="si">✅ Sí, sigo la cuenta (+1 ticket)</option>
