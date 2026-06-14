@@ -102,14 +102,14 @@ export default function Home() {
           <p className="text-white/80 text-xs font-bold uppercase tracking-widest mb-2">🏆 Más oportunidades de ganar</p>
           <div className="flex flex-col gap-1">
             <p className="text-white/60 text-xs">• Inscripción = <strong className="text-white/90">1 ticket</strong></p>
-            <p className="text-white/60 text-xs">• Sigues @playablancaresort = <strong className="text-white/90">+1 ticket</strong></p>
+            <p className="text-white/60 text-xs">• Sigues @playablanca_resort = <strong className="text-white/90">+1 ticket</strong></p>
             <p className="text-white/60 text-xs">• Sigues @magmalodge = <strong className="text-white/90">+1 ticket</strong></p>
           </div>
           <p className="text-white/40 text-xs mt-2">Máximo: 3 tickets por participante.</p>
         </div>
 
                 <div className="mb-4">
-          <label>¿Sigues a @playablancaresort en Instagram? *</label>
+          <label>¿Sigues a @playablanca_resort en Instagram? *</label>
           <select value={form.sigue_playablanca} onChange={e => setForm({...form, sigue_playablanca: e.target.value})}>
             <option value="">— Selecciona —</option>
             <option value="si">✅ Sí, sigo la cuenta (+1 ticket)</option>
