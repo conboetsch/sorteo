@@ -184,8 +184,7 @@ export default function Home() {
         <p><strong>Responsable:</strong> Playa Blanca Resort (en conjunto con Magma Lodge · Pucón).</p>
         <p className="mt-2"><strong>Datos recopilados:</strong> nombre, apellido, correo electrónico y teléfono WhatsApp.</p>
         <p className="mt-2"><strong>Finalidad:</strong> gestionar la participación en el sorteo, verificar los requisitos de participación y contactar al ganador o ganadora para la entrega del premio.</p>
-        <p className="mt-2"><strong>No compartimos tus datos</strong> con terceros ni los usaremos con fines publicitarios sin tu consentimiento adicional.</p>
-        <p className="mt-2"><strong>Tus derechos:</strong> puedes solicitar en cualquier momento el acceso, rectificación o eliminación de tus datos escribiendo a{" "}
+        <p className="mt-2"><strong>Tus derechos:</strong> puedes solicitar el acceso, rectificación o eliminación de tus datos escribiendo a{" "}
           <a href="mailto:contacto@playablancaresort.cl" className="underline" style={{color:'rgba(255,255,255,0.55)'}}>contacto@playablancaresort.cl</a>.
         </p>
         <p className="mt-2">El tratamiento de datos se realiza conforme a la <strong>Ley 19.628</strong> sobre Protección de la Vida Privada (Chile).</p>
