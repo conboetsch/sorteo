@@ -151,9 +151,9 @@ export default function Home() {
             className="mt-1 w-4 h-4 cursor-pointer flex-shrink-0"
             style={{accentColor:'#D4A843'}}
           />
-          <label htmlFor="consentimiento" className="text-sm leading-relaxed" style={{color:'rgba(255,255,255,0.75)'}}>
+          <label htmlFor="consentimiento" className="text-xs leading-relaxed" style={{color:'rgba(255,255,255,0.45)'}}>
             He leído y acepto la{" "}
-            <a href="#politica-privacidad" style={{color:'#D4A843'}} className="underline">
+            <a href="#politica-privacidad" style={{color:'rgba(212,168,67,0.7)'}} className="underline">
               Política de Privacidad
             </a>
             . Autorizo a Playa Blanca Resort y Magma Lodge a almacenar mis datos personales
