@@ -171,7 +171,7 @@ export default function AdminSorteo() {
 
         <div className="flex gap-2 flex-wrap justify-center mb-4">
           <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#38BDF822',color:'#38BDF8',border:'1px solid #38BDF844'}}>🏖️ @playablanca_resort = +1 ticket</span>
-          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋 @magmalodge = +1 ticket</span>
+          <span className="text-xs px-2 py-1 rounded-full font-bold" style={{background:'#D4A84322',color:'#D4A843',border:'1px solid #D4A84344'}}>🌋 @magma.lodge = +1 ticket</span>
         </div>
 
         <div className="rounded-xl overflow-hidden mb-4" style={{background:'rgba(0,0,0,0.2)',maxHeight:'200px',overflowY:'auto'}}>
@@ -230,7 +230,7 @@ export default function AdminSorteo() {
               Pídele que muestre el teléfono: debe seguir
               {ganador.sigue_playablanca && ' @playablanca_resort'}
               {ganador.sigue_playablanca && ganador.sigue_magma && ' y'}
-              {ganador.sigue_magma && ' @magmalodge'}.
+              {ganador.sigue_magma && ' @magma.lodge'}.
               Si no puede, sortea de nuevo.
             </p>
           </div>
