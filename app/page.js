@@ -152,14 +152,11 @@ export default function Home() {
             style={{accentColor:'#D4A843'}}
           />
           <label htmlFor="consentimiento" className="text-xs leading-relaxed" style={{color:'rgba(255,255,255,0.45)'}}>
-            He leído y acepto la{" "}
+            Acepto que mis datos personales (nombre, correo y teléfono) sean almacenados por Playa Blanca Resort y Magma Lodge para la realización de este sorteo y para el envío de comunicaciones y promociones de ambas propiedades, conforme a la{" "}
             <a href="#politica-privacidad" style={{color:'rgba(212,168,67,0.7)'}} className="underline">
-              Política de Privacidad
+              Ley 19.628
             </a>
-            . Autorizo a Playa Blanca Resort y Magma Lodge a almacenar mis datos personales
-            (nombre, correo y teléfono) con el único fin de gestionar mi participación en este
-            sorteo y contactarme en caso de resultar ganador/a, conforme a la Ley 19.628
-            sobre Protección de la Vida Privada.
+            {" "}sobre Protección de la Vida Privada.
           </label>
         </div>
 
