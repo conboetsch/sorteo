@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function Home() {
   const [form, setForm] = useState({
     nombre: '', apellido: '', mail: '', telefono: '',
-    hijos: '', sigue_playablanca: '', sigue_magma: ''
+    hijos: '', sigue_playablanca: '', sigue_magma: '', consentimiento: false
   })
   const [estado, setEstado] = useState('idle') // idle | loading | success | error
   const [error, setError] = useState('')
@@ -22,6 +22,10 @@ export default function Home() {
     const soloNumeros = form.telefono.replace(/\D/g, '')
     if (soloNumeros.length < 9) {
       setError('El teléfono debe tener al menos 9 dígitos.')
+      return
+    }
+    if (!form.consentimiento) {
+      setError('Debes aceptar la Política de Privacidad para participar.')
       return
     }
     setError('')
@@ -136,6 +140,29 @@ export default function Home() {
           </select>
         </div>
 
+
+        {/* CHECKBOX CONSENTIMIENTO */}
+        <div className="flex items-start gap-3 mt-4 mb-4">
+          <input
+            type="checkbox"
+            id="consentimiento"
+            checked={form.consentimiento}
+            onChange={e => setForm({...form, consentimiento: e.target.checked})}
+            className="mt-1 w-4 h-4 cursor-pointer flex-shrink-0"
+            style={{accentColor:'#D4A843'}}
+          />
+          <label htmlFor="consentimiento" className="text-sm leading-relaxed" style={{color:'rgba(255,255,255,0.75)'}}>
+            He leído y acepto la{" "}
+            <a href="#politica-privacidad" style={{color:'#D4A843'}} className="underline">
+              Política de Privacidad
+            </a>
+            . Autorizo a Playa Blanca Resort y Magma Lodge a almacenar mis datos personales
+            (nombre, correo y teléfono) con el único fin de gestionar mi participación en este
+            sorteo y contactarme en caso de resultar ganador/a, conforme a la Ley 19.628
+            sobre Protección de la Vida Privada.
+          </label>
+        </div>
+
         {error && (
           <div className="mb-4 p-3 rounded-xl text-sm" style={{background:'rgba(231,76,60,0.15)', border:'1px solid rgba(231,76,60,0.4)', color:'#FCA5A5'}}>
             ⚠️ {error}
@@ -150,6 +177,19 @@ export default function Home() {
           Solo participan personas presentes en el evento · Solo una inscripción por persona
         </p>
       </div>
+
+      {/* POLÍTICA DE PRIVACIDAD */}
+      <section id="politica-privacidad" className="mt-10 text-xs max-w-xl mx-auto px-4 pb-10 leading-relaxed" style={{color:'rgba(255,255,255,0.45)'}}>
+        <h3 className="font-semibold mb-2 text-sm" style={{color:'rgba(255,255,255,0.65)'}}>Política de Privacidad · Sorteo Gran Final Monte Tabor 2026</h3>
+        <p><strong>Responsable:</strong> Playa Blanca Resort (en conjunto con Magma Lodge · Pucón).</p>
+        <p className="mt-2"><strong>Datos recopilados:</strong> nombre, apellido, correo electrónico y teléfono WhatsApp.</p>
+        <p className="mt-2"><strong>Finalidad:</strong> gestionar la participación en el sorteo, verificar los requisitos de participación y contactar al ganador o ganadora para la entrega del premio.</p>
+        <p className="mt-2"><strong>No compartimos tus datos</strong> con terceros ni los usaremos con fines publicitarios sin tu consentimiento adicional.</p>
+        <p className="mt-2"><strong>Tus derechos:</strong> puedes solicitar en cualquier momento el acceso, rectificación o eliminación de tus datos escribiendo a{" "}
+          <a href="mailto:contacto@playablancaresort.cl" className="underline" style={{color:'rgba(255,255,255,0.55)'}}>contacto@playablancaresort.cl</a>.
+        </p>
+        <p className="mt-2">El tratamiento de datos se realiza conforme a la <strong>Ley 19.628</strong> sobre Protección de la Vida Privada (Chile).</p>
+      </section>
     </main>
   )
 }
